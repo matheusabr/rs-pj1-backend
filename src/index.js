@@ -12,8 +12,9 @@ const app = express()
  */
 
 //  Define a middleware
+// Access http://localhost:3333/?surname=Abreu
 app.get('/', (req, res) => {
-  return res.send('Root request: Hello Matheus!')
+  return res.send(`Root request: Hello Matheus ${req.query.surname}!`)
 })
 
 // Set a backend port to listen
