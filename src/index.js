@@ -2,6 +2,7 @@ const express = require('express')
 const api = require('../private/api')
 const mongoose = require('mongoose')
 const path = require('path')
+const cors = require('cors')
 
 // Create a server
 const app = express()
@@ -10,6 +11,9 @@ const app = express()
 mongoose.connect(api.PATH_TO_MONGO_CLUSTER, {
   useNewUrlParser: true
 })
+
+// Turn api services acessible to external apps
+app.use(cors())
 
 // Define a router to refer to a local file
 app.use(
