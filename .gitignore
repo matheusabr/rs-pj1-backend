@@ -5,6 +5,8 @@
 ### General ###
 # Keys
 private
+# Folders
+uploads
 
 ### Node ###
 # Logs

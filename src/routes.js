@@ -1,11 +1,13 @@
 const express = require('express')
 // To handle multipart requests
 const multer = require('multer')
+// To handle file uploads
+const uploadConfig = require('./config/upload')
 // Constrollers
 const PostController = require('./controllers/PostController')
 
 const routes = new express.Router()
-const upload = multer()
+const upload = multer(uploadConfig)
 
 /**
  * Basic requests:
