@@ -22,11 +22,14 @@ module.exports = {
     const { author, place, description, hashtags } = req.body
     const { filename: image } = req.file
 
+    const [name, ext] = image.split('.')
+    const fileName = `${name}.jpg`
+
     // Resize image file
     await sharp(req.file.path)
       .resize(500)
       .jpeg({ quality: 70 })
-      .toFile(path.resolve(req.file.destination, 'resized', image))
+      .toFile(path.resolve(req.file.destination, 'resized', fileName))
 
     // Remove original image file
     fs.unlinkSync(req.file.path)
@@ -37,7 +40,7 @@ module.exports = {
       place,
       description,
       hashtags,
-      image
+      image: fileName
     })
     // Return response
     return res.json(post)
