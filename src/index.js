@@ -12,7 +12,7 @@ const app = express()
  * http and websocket (realtime db)
  */
 const server = require('http').Server(app)
-const io = require('socket.io')(Server)
+const io = require('socket.io')(server)
 
 // Start Mongoose
 mongoose.connect(api.PATH_TO_MONGO_CLUSTER, {
