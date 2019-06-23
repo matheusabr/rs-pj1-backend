@@ -1,15 +1,14 @@
 const express = require('express')
+import { PATH_TO_MONGO_CLUSTER } from '../private/api'
+const mongoose = require('mongoose')
 
 // Create a server
 const app = express()
 
-/**
- * Basic requests:
- * GET - get a set of data
- * POST - add a new data
- * PUT - update data
- * DELETE - remove data
- */
+// Start Mongoose
+mongoose.connect(PATH_TO_MONGO_CLUSTER, {
+  useNewUrlParser: true
+})
 
 //  Define a middleware
 // Access http://localhost:3333/?surname=Abreu
