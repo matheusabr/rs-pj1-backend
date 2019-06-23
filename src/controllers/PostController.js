@@ -14,7 +14,7 @@ module.exports = {
 
     res.json(posts)
   },
-  // Add posts to db
+  // Add to db
   async store(req, res) {
     const { author, place, description, hashtags } = req.body
     const { filename: image } = req.file

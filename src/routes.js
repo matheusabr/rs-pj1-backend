@@ -5,6 +5,7 @@ const multer = require('multer')
 const uploadConfig = require('./config/upload')
 // Constrollers
 const PostController = require('./controllers/PostController')
+const LikeController = require('./controllers/LikeController')
 
 const routes = new express.Router()
 const upload = multer(uploadConfig)
@@ -20,5 +21,6 @@ const upload = multer(uploadConfig)
 // Bind controller to route
 routes.get('/posts', PostController.index)
 routes.post('/posts', upload.single('image'), PostController.store)
+routes.post('/posts/:id/like', LikeController.store)
 
 module.exports = routes
