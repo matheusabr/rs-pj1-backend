@@ -42,6 +42,10 @@ module.exports = {
       hashtags,
       image: fileName
     })
+
+    // Realtime dispatch to all client listeners
+    req.io.emit('post', post)
+
     // Return response
     return res.json(post)
   }

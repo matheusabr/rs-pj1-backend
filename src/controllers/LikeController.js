@@ -17,6 +17,9 @@ module.exports = {
 
     await post.save()
 
+    // Realtime dispatch to all client listeners
+    req.io.emit('like', post)
+
     return res.json(post)
   }
 }
