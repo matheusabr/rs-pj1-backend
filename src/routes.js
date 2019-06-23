@@ -17,12 +17,8 @@ const upload = multer(uploadConfig)
  * DELETE - remove data
  */
 
-// Access http://localhost:3333/?surname=Abreu
-// routes.get('/', (req, res) => {
-//   return res.send(`Hola Matheus ${req.query.surname}!`)
-// })
-
 // Bind controller to route
+routes.get('/posts', PostController.index)
 routes.post('/posts', upload.single('image'), PostController.store)
 
 module.exports = routes
