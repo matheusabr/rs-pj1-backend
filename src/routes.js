@@ -1,8 +1,11 @@
 const express = require('express')
+// To handle multipart requests
+const multer = require('multer')
 // Constrollers
 const PostController = require('./controllers/PostController')
 
 const routes = new express.Router()
+const upload = multer()
 
 /**
  * Basic requests:
@@ -18,6 +21,6 @@ const routes = new express.Router()
 // })
 
 // Bind controller to route
-routes.post('/posts', PostController.store)
+routes.post('/posts', upload.single('image'), PostController.store)
 
 module.exports = routes
